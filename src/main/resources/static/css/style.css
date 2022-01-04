@@ -30,7 +30,7 @@ header {
   font-size: 17px;
   line-height: 21px;
 
-  margin-right: 20px;
+  margin-right: 5px;
   text-decoration: none;
   padding: .5rem;
   color: white;
@@ -150,12 +150,12 @@ header {
 }
 
 .title {
-  font-family: Montserrat;
+  font-family: Montserrat Alternates;
   font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 32px;
-  text-align: center;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 48px;
+  letter-spacing: 2px;
   color: #1C1C1D;
 }
 
@@ -230,7 +230,6 @@ header {
   margin-bottom: 80px;
 }
 
-
 .title-info-about-kind {
   font-family: Montserrat Alternates;
   font-style: normal;
@@ -252,39 +251,3 @@ header {
 }
 
 /* ecomerce end */
-
-/* gallery start */
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grid-column {
-  flex: 25%;
-  max-width: 25%;
-}
-
-.grid-column img {
-  margin-top: 4px;
-  vertical-align: middle;
-  max-width: 296px;
-  width: 100%;
-}
-
-.grid-column img:hover {
-  -webkit-transform: scale(1.25);
-  -moz-transform: scale(1.25);
-  filter: drop-shadow(0 0 0.75rem crimson);
-}
-
-.gallery h1 {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 64px;
-  text-align: center;
-}
-/* gallery end */
-
-/* */
