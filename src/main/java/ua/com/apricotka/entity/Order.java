@@ -1,40 +1,45 @@
 package ua.com.apricotka.entity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "lab3_ld_orders")
 public class Order {
 
+    @Id
+    @Column(name = "lab3_ld_order_id", nullable = false)
+    @GeneratedValue(generator = "increment")
     private int id;
-    private User user;
-    private List<OrderItem> orderItems = new ArrayList<>();
+
+    @Column(name = "lab3_ld_user_id", nullable = false)
+    private int userId;
+
+    @Column(name = "lab3_ld_order_date", nullable = false)
     private LocalDateTime orderDate;
+
+    @Column(name = "lab3_ld_total_price", nullable = false)
     private double totalPrice;
+
+    @Column(name = "lab3_ld_order_details")
     private String orderDetails;
 
     public int getId() {
         return id;
     }
 
-    public void setId(int orderId) {
-        this.id = orderId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public LocalDateTime getOrderDate() {

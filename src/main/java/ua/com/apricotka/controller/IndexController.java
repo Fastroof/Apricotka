@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import ua.com.apricotka.entity.Apricot;
-import ua.com.apricotka.entity.ApricotImages;
-import ua.com.apricotka.repository.ApricotImagesRepository;
+import ua.com.apricotka.entity.ApricotImage;
+import ua.com.apricotka.repository.ApricotImageRepository;
 import ua.com.apricotka.repository.ApricotRepository;
 
 @Controller
@@ -16,12 +16,12 @@ public class IndexController {
     private ApricotRepository apricotRepository;
 
     @Autowired
-    private ApricotImagesRepository apricotImagesRepository;
+    private ApricotImageRepository apricotImageRepository;
 
     @GetMapping("/")
     public String showIndexPage(ModelMap model) {
         Iterable<Apricot> apricots = apricotRepository.findAll();
-        Iterable<ApricotImages> apricotImages = apricotImagesRepository.findAll();
+        Iterable<ApricotImage> apricotImages = apricotImageRepository.findAll();
         model.addAttribute("apricots", apricots);
         model.addAttribute("apricotImages", apricotImages);
         return "index";

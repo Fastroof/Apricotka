@@ -1,26 +1,37 @@
 package ua.com.apricotka.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "lab3_ld_users")
 public class User {
 
-    private int userId;
+    @Id
+    @Column(name = "lab3_ld_user_id", nullable = false)
+    @GeneratedValue(generator = "increment")
+    private int id;
+
+    @Column(name = "lab3_ld_username", nullable = false)
     private String username;
+
+    @Column(name = "lab3_ld_password", nullable = false)
     private String password;
+
+    @Column(name = "lab3_ld_first_name", nullable = false)
     private String firstName;
+
+    @Column(name = "lab3_ld_last_name", nullable = false)
     private String lastName;
+
+    @Column(name = "lab3_ld_shipping_address")
     private String shippingAddress;
 
-    public User(int userId, String username, String password) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-    }
-
     public int getUserId() {
-        return userId;
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {

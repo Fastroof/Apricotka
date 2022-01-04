@@ -3,15 +3,15 @@ package ua.com.apricotka.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "lab3_ld_apricot_images")
-public class ApricotImages {
+@Table(name = "lab3_ld_gallery_images")
+public class GalleryImage {
 
     @Id
-    @Column(name = "lab3_ld_apricot_image_id", nullable = false)
+    @Column(name = "lab3_ld_image_id", nullable = false)
     @GeneratedValue(generator = "increment")
     private int id;
 
-    @Column(name = "lab3_ld_apricot_id", nullable = false)
+    @Column(name = "lab3_ld_group_id", nullable = false)
     private int apricotId;
 
     @Column(name = "lab3_ld_image_file", length = 120)

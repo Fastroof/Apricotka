@@ -9,9 +9,8 @@ header {
 }
 
 .logo {
-  margin-right: 90px;
   height: 4rem;
-  margin: 10px 0;
+  margin: 10px 0 10px 20px;
 }
 
 .navigation-bar-links {

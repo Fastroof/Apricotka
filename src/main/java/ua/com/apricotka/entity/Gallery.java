@@ -1,15 +1,13 @@
 package ua.com.apricotka.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "lab3_ld_gallery")
 public class Gallery {
     @Id
     @Column(name = "lab3_ld_group_id", nullable = false)
+    @GeneratedValue(generator = "increment")
     private int id;
 
     @Column(name = "lab3_ld_group_name")
