@@ -10,7 +10,8 @@ header {
 
 .logo {
   height: 4rem;
-  margin: 10px 0 10px 20px;
+  margin: 10px 0;
+  padding-left: 1rem;
 }
 
 .navigation-bar-links {
@@ -23,7 +24,6 @@ header {
   margin-bottom: 0;
 }
 .navigation-bar a {
-  font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
@@ -74,7 +74,6 @@ header {
 }
 
 .content h1 {
-  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 70px;
@@ -84,7 +83,6 @@ header {
 }
 
 .content p {
-  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -98,45 +96,6 @@ header {
   text-shadow: 0 0 0.1em #000000;
 }
 
-.button {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 16px;
-  text-align: center;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #fff;
-  border: none;
-  color: #000;
-  width: 200px;
-  height: 50px;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-  left: 10px;
-}
-
-.button span:after {
-  content: ' 🛒';
-  opacity: 0;
-  top: 0;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 5px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
 /* hello end */
 
 
@@ -166,7 +125,6 @@ header {
 }
 
 .text-about p {
-  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -180,7 +138,6 @@ header {
 }
 
 .tour-button {
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 900;
   font-size: 16px;
@@ -230,7 +187,7 @@ header {
 }
 
 .title-info-about-kind {
-  font-family: Montserrat Alternates;
+  font-family: Montserrat Alternate;
   font-style: normal;
   font-weight: normal;
   font-size: 45px;
@@ -240,7 +197,6 @@ header {
 }
 
 .text-info-about-kind {
-  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -249,4 +205,144 @@ header {
   color: #474A57;
 }
 
+.kind {
+  border: 1px solid #ababab;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+}
+
+.order-box {
+  margin-left: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.price {
+  margin-right: 16px;
+}
+
+.button {
+  text-align: center;
+  display: flex;
+  border-radius: 4px;
+  background-color: #00a046;
+  border: none;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  margin: 0 24px 0 0;
+}
+.button span {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  margin: auto;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+}
+
+.button:hover{
+  opacity: 0.85;
+}
+
 /* ecomerce end */
+
+/* gallery start */
+
+.gallery {
+  display: block;
+  min-height: 100vh;
+  padding: 100px 0;
+}
+
+.gallery .gallery-filter {
+  padding: 0 15px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gallery .gallery-filter .filter-item {
+  color: #000;
+  font-size: 17px;
+  border: 2px solid #000;
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+  padding: 8px 20px 8px 20px;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.gallery .gallery-filter .filter-item.active {
+  color: white;
+  border-color : #16b5ef;
+  background: #16b5ef;
+}
+
+.gallery .gallery-item {
+  width: calc(100% / 4);
+  padding: 15px;
+
+}
+.gallery .gallery-item-inner img {
+  margin-top: 4px;
+  vertical-align: middle;
+  max-width: 296px;
+  width: 100%;
+}
+
+.gallery .gallery-item-inner img:hover {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+.gallery .gallery-item.show {
+  animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.gallery .gallery-item.hide {
+  display: none;
+}
+
+@media(max-width: 491px) {
+  .gallery .gallery-item {
+    width: 50%;
+  }
+}
+@media(max-width: 667px) {
+  .gallery .gallery-item {
+    width: 100%;
+  }
+  .gallery .gallery-filter .filter-item {
+    margin-bottom: 10px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}

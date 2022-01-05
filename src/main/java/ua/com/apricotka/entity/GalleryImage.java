@@ -12,7 +12,7 @@ public class GalleryImage {
     private int id;
 
     @Column(name = "lab3_ld_group_id", nullable = false)
-    private int apricotId;
+    private int groupId;
 
     @Column(name = "lab3_ld_image_file", length = 120)
     private String file;
@@ -25,12 +25,12 @@ public class GalleryImage {
         this.id = id;
     }
 
-    public int getApricotId() {
-        return apricotId;
+    public int getGroupId() {
+        return groupId;
     }
 
-    public void setApricotId(int apricotId) {
-        this.apricotId = apricotId;
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
     public String getFile() {
