@@ -5,6 +5,7 @@
 <html>
 <head>
     <%@include file="/WEB-INF/jspf/head.jspf"%>
+    <link rel="stylesheet" href="<spring:url value="css/splide.min.css"/>">
 </head>
 <body>
     <%@include file="/WEB-INF/jspf/header.jspf"%>
@@ -17,47 +18,55 @@
                 </c:forEach>
             </div>
         </div>
-        <div class="row container">
-            <c:forEach var="image" items="${galleryImages}">
-                <div class="gallery-item ${image.groupId}">
-                    <div class="gallery-item-inner">
-                        <img src="pictures/gallery/${image.file}" id="${image.id}" alt="${image.groupId}">
-                    </div>
+        <div class="container">
+            <div class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <c:forEach var="image" items="${galleryImages}">
+                            <img class="splide__slide" src="pictures/gallery/${image.file}" id="${image.id}" alt="${image.groupId}">
+                        </c:forEach>
+                    </ul>
                 </div>
-            </c:forEach>
+            </div>
         </div>
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%--    <script type="text/javascript">--%>
+<%--        const filterContainer = document.querySelector(".gallery-filter");--%>
+<%--        const galleryItems = document.querySelectorAll(".gallery-item");--%>
+
+<%--        filterContainer.addEventListener("click", (event) =>{--%>
+<%--            if(event.target.classList.contains("filter-item")){--%>
+
+<%--                // deactivate existing active 'filter-item'--%>
+<%--                filterContainer.querySelector(".active").classList.remove("active");--%>
+
+<%--                // activate new 'filter-item'--%>
+<%--                event.target.classList.add("active");--%>
+
+<%--                const filterValue = event.target.getAttribute("data-filter");--%>
+
+<%--                galleryItems.forEach((item) =>{--%>
+
+<%--                    if(item.classList.contains(filterValue) || filterValue === '0'){--%>
+<%--                        item.classList.remove("hide");--%>
+<%--                        item.classList.add("show");--%>
+<%--                    }--%>
+
+<%--                    else{--%>
+<%--                        item.classList.remove("show");--%>
+<%--                        item.classList.add("hide");--%>
+<%--                    }--%>
+
+<%--                });--%>
+<%--            }--%>
+<%--        });--%>
+<%--    </script>--%>
+    <script src="<spring:url value="js/splide.min.js"/>"></script>
     <script type="text/javascript">
-        const filterContainer = document.querySelector(".gallery-filter");
-        const galleryItems = document.querySelectorAll(".gallery-item");
-
-        filterContainer.addEventListener("click", (event) =>{
-            if(event.target.classList.contains("filter-item")){
-
-                // deactivate existing active 'filter-item'
-                filterContainer.querySelector(".active").classList.remove("active");
-
-                // activate new 'filter-item'
-                event.target.classList.add("active");
-
-                const filterValue = event.target.getAttribute("data-filter");
-
-                galleryItems.forEach((item) =>{
-
-                    if(item.classList.contains(filterValue) || filterValue === '0'){
-                        item.classList.remove("hide");
-                        item.classList.add("show");
-                    }
-
-                    else{
-                        item.classList.remove("show");
-                        item.classList.add("hide");
-                    }
-
-                });
-            }
-        });
+        var splide = new Splide( '.splide' );
+        splide.mount();
     </script>
 </body>
 </html>
