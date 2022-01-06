@@ -1,6 +1,7 @@
 package ua.com.apricotka.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +15,7 @@ import java.util.Collections;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "lab3_ld_users")
 public class User implements UserDetails {
 
@@ -37,9 +39,33 @@ public class User implements UserDetails {
     @Column(name = "lab3_ld_email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "lab3_ld_role", nullable = false)
+    @Enumerated(EnumType.STRING)
     private UserRole userRole;
+
+    @Column(name = "lab3_ld_locked", nullable = false)
     private Boolean locked;
+
+    @Column(name = "lab3_ld_enabled", nullable = false)
     private Boolean enabled;
+
+    public User(String username,
+                String password,
+                String firstName,
+                String lastName,
+                String email,
+                UserRole userRole,
+                Boolean locked,
+                Boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.userRole = userRole;
+        this.locked = locked;
+        this.enabled = enabled;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
