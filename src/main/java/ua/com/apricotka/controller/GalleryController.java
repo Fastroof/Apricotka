@@ -19,7 +19,7 @@ public class GalleryController {
     private GalleryImageRepository galleryImageRepository;
 
     @GetMapping("/gallery")
-    public String showIndexPage(ModelMap model) {
+    public String showGalleryPage(ModelMap model) {
         Iterable<Gallery> galleryGroups = galleryRepository.findAll();
         Iterable<GalleryImage> galleryImages = galleryImageRepository.findAll();
         model.addAttribute("galleryGroups", galleryGroups);

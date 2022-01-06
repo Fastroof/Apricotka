@@ -1,0 +1,16 @@
+.auntification-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auntification-button {
+    display: flex;
+    justify-content: center;
+}
+
+.auntification-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

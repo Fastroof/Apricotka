@@ -1,7 +1,12 @@
 package ua.com.apricotka.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "lab3_ld_order_items")
 public class OrderItem {
@@ -19,36 +24,4 @@ public class OrderItem {
 
     @Column(name = "lab3_ld_quantity")
     private long quantity;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getApricotId() {
-        return apricotId;
-    }
-
-    public void setApricotId(int apricotId) {
-        this.apricotId = apricotId;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    public long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(long quantity) {
-        this.quantity = quantity;
-    }
 }

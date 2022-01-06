@@ -1,10 +1,13 @@
 package ua.com.apricotka.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "lab3_ld_orders")
 public class Order {
@@ -25,44 +28,4 @@ public class Order {
 
     @Column(name = "lab3_ld_order_details")
     private String orderDetails;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public LocalDateTime getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public String getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(String orderDetails) {
-        this.orderDetails = orderDetails;
-    }
 }

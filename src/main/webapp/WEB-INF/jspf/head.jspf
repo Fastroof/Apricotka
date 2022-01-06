@@ -1,7 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <meta charset="utf-8">
-<title>Абрикоска</title>
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,4 +10,4 @@
 <link type="text/css" rel="stylesheet" href="<spring:url value="css/normalize.css"/>">
 <link type="text/css" rel="stylesheet" href="<spring:url value="css/skeleton.css"/>">
 <link type="text/css" rel="stylesheet" href="<spring:url value="css/style.css"/>">
-<link rel="icon" type="image/svg" href="<spring:url value="resources/logo/logo-icon-v2.2.svg"/>">
+<link rel="icon" type="image/svg" href="<spring:url value="logo/logo-icon-v2.2.svg"/>">

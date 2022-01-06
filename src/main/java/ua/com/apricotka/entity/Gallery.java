@@ -1,7 +1,12 @@
 package ua.com.apricotka.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "lab3_ld_gallery")
 public class Gallery {
@@ -12,20 +17,4 @@ public class Gallery {
 
     @Column(name = "lab3_ld_group_name")
     private String groupName;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
 }

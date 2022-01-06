@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TourController {
 
     @GetMapping("/tour")
-    public String showIndexPage(ModelMap model) {
+    public String showTourPage(ModelMap model) {
         return "tour";
     }
 }

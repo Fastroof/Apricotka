@@ -4,6 +4,14 @@ header {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.shop-img {
+  width: 1.5rem;
+}
+
+.login-img {
+  width: 1.5rem;
+}
+
 .navigation-bar {
   display: flex;
 }
@@ -17,6 +25,7 @@ header {
 .navigation-bar-links {
   list-style: none;
   display: flex;
+  align-items: center;
   margin: auto 0 auto auto;
 }
 
@@ -48,9 +57,9 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  --bg-image-1: url("../resources/slider/slider-1.jpg");
-  --bg-image-2: url("../resources/slider/slider-2.jpg");
-  --bg-image-3: url("../resources/slider/slider-3.jpg");
+  --bg-image-1: url("../slider/slider-1.jpg");
+  --bg-image-2: url("../slider/slider-2.jpg");
+  --bg-image-3: url("../slider/slider-3.jpg");
 
   animation: changebg 16s infinite;
 }
@@ -240,7 +249,7 @@ header {
   width: 120px;
   height: 40px;
   cursor: pointer;
-  margin: 0 24px 0 0;
+  margin: 0 24px 8px 0;
 }
 .button span {
   font-style: normal;
@@ -260,20 +269,20 @@ header {
 /* ecomerce end */
 
 /* gallery start */
-
 .gallery {
   display: block;
   min-height: 100vh;
   padding: 100px 0;
 }
 
-.gallery .gallery-filter{
+.gallery .gallery-filter {
   padding: 0 15px;
   width: 100%;
   text-align: center;
   margin-bottom: 40px;
 }
-.gallery .gallery-filter .filter-item{
+
+.gallery .gallery-filter .filter-item {
   color: #000;
   font-size: 17px;
   border: 2px solid #000;
@@ -291,4 +300,55 @@ header {
   color: white;
   border-color : #16b5ef;
   background: #16b5ef;
+}
+
+.gallery .gallery-item {
+  width: calc(100% / 4);
+}
+.gallery .gallery-item-inner img {
+  margin-top: 4px;
+  vertical-align: middle;
+  max-width: 296px;
+  width: 100%;
+}
+
+.gallery .gallery-item-inner img:hover {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+.gallery .gallery-item.show {
+  animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.gallery .gallery-item.hide {
+  display: none;
+}
+
+@media(max-width: 491px) {
+  .gallery .gallery-item {
+    width: 50%;
+  }
+}
+@media(max-width: 667px) {
+  .gallery .gallery-item {
+    width: 100%;
+  }
+  .gallery .gallery-filter .filter-item {
+    margin-bottom: 10px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }

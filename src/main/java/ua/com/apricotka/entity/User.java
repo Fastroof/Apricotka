@@ -1,15 +1,26 @@
 package ua.com.apricotka.entity;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import ua.com.apricotka.model.UserRole;
 
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Collections;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "lab3_ld_users")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @Column(name = "lab3_ld_user_id", nullable = false)
     @GeneratedValue(generator = "increment")
-    private int id;
+    private Long id;
 
     @Column(name = "lab3_ld_username", nullable = false)
     private String username;
@@ -23,54 +34,46 @@ public class User {
     @Column(name = "lab3_ld_last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "lab3_ld_shipping_address")
-    private String shippingAddress;
+    @Column(name = "lab3_ld_email", nullable = false, unique = true)
+    private String email;
 
-    public int getUserId() {
-        return id;
+    private UserRole userRole;
+    private Boolean locked;
+    private Boolean enabled;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.name());
+        return Collections.singletonList(authority);
     }
 
-    public void setUserId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+    @Override
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String getUsername() {
+        return username;
     }
 
-    public String getFirstName() {
-        return firstName;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    @Override
+    public boolean isAccountNonLocked() {
+        return !locked;
     }
 
-    public String getLastName() {
-        return lastName;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getShippingAddress() {
-        return shippingAddress;
-    }
-
-    public void setShippingAddress(String shippingAddress) {
-        this.shippingAddress = shippingAddress;
+    @Override
+    public boolean isEnabled() {
+        return enabled;
     }
 }
