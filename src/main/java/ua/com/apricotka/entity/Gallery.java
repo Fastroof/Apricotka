@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Gallery {
     @Id
     @Column(name = "lab3_ld_group_id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
     private int id;
 
     @Column(name = "lab3_ld_group_name")

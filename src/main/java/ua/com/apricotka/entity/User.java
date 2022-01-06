@@ -2,6 +2,7 @@ package ua.com.apricotka.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,8 +13,8 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @Column(name = "lab3_ld_user_id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "lab3_ld_user_id", nullable = false, unique = true, updatable = false)
+    @GeneratedValue(generator = "increment")
     private Long id;
 
     @Column(name = "lab3_ld_email", nullable = false, unique = true)

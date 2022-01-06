@@ -13,7 +13,7 @@ public class ApricotImage {
 
     @Id
     @Column(name = "lab3_ld_apricot_image_id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
     private int id;
 
     @Column(name = "lab3_ld_apricot_id", nullable = false)

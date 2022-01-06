@@ -14,7 +14,7 @@ public class Apricot {
 
     @Id
     @Column(name = "lab3_ld_apricot_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
     private int id;
 
     @Column(name = "lab3_ld_apricot_name", nullable = false, length = 30)
