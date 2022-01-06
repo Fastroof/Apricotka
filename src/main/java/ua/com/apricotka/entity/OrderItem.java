@@ -13,7 +13,7 @@ public class OrderItem {
 
     @Id
     @Column(name = "lab3_ld_item_id", nullable = false)
-    @GeneratedValue(generator = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "lab3_ld_apricot_id", nullable = false)

@@ -13,7 +13,7 @@ public class GalleryImage {
 
     @Id
     @Column(name = "lab3_ld_image_id", nullable = false)
-    @GeneratedValue(generator = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "lab3_ld_group_id", nullable = false)

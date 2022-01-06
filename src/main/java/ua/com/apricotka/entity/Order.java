@@ -14,7 +14,7 @@ public class Order {
 
     @Id
     @Column(name = "lab3_ld_order_id", nullable = false)
-    @GeneratedValue(generator = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "lab3_ld_user_id", nullable = false)

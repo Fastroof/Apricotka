@@ -1,6 +1,7 @@
 package ua.com.apricotka.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,19 +17,17 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String showRegistrationPage(ModelMap model) {
-        return "registration";
+        model.addAttribute("user", new User());
+        return "thymeleaf/registration";
     }
 
     @PostMapping("/registration")
-    public String addUser(ModelMap model, User user) {
-//        User userFromDb = userRepository.findByUsername(user.getUsername());
-//
-//        if (userFromDb != null) {
-//            model.put("message", "Даний користувач вже зареєстрований");
-//            return "registration";
-//        }
-//        userRepository.save(user);
-        return "redirect:/login";
-    }
+    public String processRegister(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
 
+        userRepository.save(user);
+        return "register_success";
+    }
 }
