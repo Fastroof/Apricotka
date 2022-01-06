@@ -11,7 +11,7 @@
   <h1>Увійти в акаунт</h1>
   <form action="/login" method="post">
     <div class="auntification-inputs">
-      <div><label> Логін : <input type="text" name="username"/> </label></div>
+      <div><label> Email : <input type="text" name="email"/> </label></div>
       <div><label> Пароль : <input type="password" name="password"/> </label></div>
     </div>
     <div class="auntification-button"><input type="submit" value="Увійти"/></div>

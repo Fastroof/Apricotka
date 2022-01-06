@@ -21,13 +21,13 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(ModelMap model, User user) {
-        User userFromDb = userRepository.findByUsername(user.getUsername());
-
-        if (userFromDb != null) {
-            model.put("message", "Даний користувач вже зареєстрований");
-            return "registration";
-        }
-        userRepository.save(user);
+//        User userFromDb = userRepository.findByUsername(user.getUsername());
+//
+//        if (userFromDb != null) {
+//            model.put("message", "Даний користувач вже зареєстрований");
+//            return "registration";
+//        }
+//        userRepository.save(user);
         return "redirect:/login";
     }
 
