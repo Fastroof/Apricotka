@@ -1,16 +1,18 @@
-package ua.com.apricotka.details;
+package ua.com.apricotka.security;
 
-import java.util.Collection;
-
-import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ua.com.apricotka.entity.User;
 
-@AllArgsConstructor
-public class CustomUserDetails implements UserDetails {
+import java.util.Collection;
 
-    private User user;
+public class UserDetailsImpl implements UserDetails {
+
+    private final User user;
+
+    public UserDetailsImpl(User user) {
+        this.user = user;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -45,10 +47,6 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public String getFullName() {
-        return user.getFirstName() + " " + user.getLastName();
     }
 
 }

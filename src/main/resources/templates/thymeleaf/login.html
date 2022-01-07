@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
+    <link type="text/css" rel="stylesheet" href="css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="css/skeleton.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg" href="logo/logo-icon-v2.2.svg">
+    <title>Увійти в акаунт</title>
+    <link type="text/css" rel="stylesheet" href="css/auntification.css">
+</head>
+<body>
+<div class="auntification-container">
+    <h1>Увійти в акаунт</h1>
+    <div th:if="${param.error}">
+        Неправильний email і/або пароль
+    </div>
+    <div th:if="${param.logout}">
+        Ви вийшли з акаунта
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div class="auntification-inputs">
+            <div><label> Email : <input type="text" name="email"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+        </div>
+        <div class="auntification-button"><input type="submit" value="Увійти"/></div>
+    </form>
+    <a href="/registration">Реєстрація нового користувача</a>
+    <br>
+    <a href="/">До магазину</a>
+</div>
+</body>
+</html>

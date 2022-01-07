@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ua.com.apricotka.entity.Apricot;
 
 @Repository
-public interface ApricotRepository extends CrudRepository<Apricot, Integer> {
+public interface ApricotRepository extends CrudRepository<Apricot, Long> {
 }

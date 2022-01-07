@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ua.com.apricotka.entity.ApricotImage;
 
 @Repository
-public interface ApricotImageRepository extends CrudRepository<ApricotImage, Integer> {
+public interface ApricotImageRepository extends CrudRepository<ApricotImage, Long> {
 }

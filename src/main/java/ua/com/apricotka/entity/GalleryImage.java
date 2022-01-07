@@ -12,12 +12,12 @@ import javax.persistence.*;
 public class GalleryImage {
 
     @Id
-    @Column(name = "lab3_ld_image_id", nullable = false)
+    @Column(name = "lab3_ld_image_id", nullable = false, unique = true)
     @GeneratedValue(generator = "increment")
-    private int id;
+    private Long id;
 
     @Column(name = "lab3_ld_group_id", nullable = false)
-    private int groupId;
+    private Long groupId;
 
     @Column(name = "lab3_ld_image_file", length = 120)
     private String file;

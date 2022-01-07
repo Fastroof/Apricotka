@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ua.com.apricotka.entity.GalleryImage;
 
 @Repository
-public interface GalleryImageRepository extends CrudRepository<GalleryImage, Integer> {
+public interface GalleryImageRepository extends CrudRepository<GalleryImage, Long> {
 }

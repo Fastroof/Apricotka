@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -18,7 +18,6 @@
 <body>
   <div class="auntification-container">
     <h1>Реєстрація нового користувача</h1>
-<!--    <p th:text="${message}"></p>-->
     <form th:action="@{/registration}" th:object="${user}" method="post">
       <div class="auntification-inputs">
         <div><label> Email : <input type="email" th:field="*{email}" required maxlength="255"/> </label></div>

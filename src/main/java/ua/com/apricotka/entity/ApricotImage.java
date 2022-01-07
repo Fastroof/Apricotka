@@ -12,12 +12,12 @@ import javax.persistence.*;
 public class ApricotImage {
 
     @Id
-    @Column(name = "lab3_ld_apricot_image_id", nullable = false)
+    @Column(name = "lab3_ld_apricot_image_id", nullable = false, unique = true)
     @GeneratedValue(generator = "increment")
-    private int id;
+    private Long id;
 
     @Column(name = "lab3_ld_apricot_id", nullable = false)
-    private int apricotId;
+    private Long apricotId;
 
     @Column(name = "lab3_ld_image_file", length = 120)
     private String file;

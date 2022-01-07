@@ -12,16 +12,16 @@ import javax.persistence.*;
 public class OrderItem {
 
     @Id
-    @Column(name = "lab3_ld_item_id", nullable = false)
+    @Column(name = "lab3_ld_item_id", nullable = false, unique = true, updatable = false)
     @GeneratedValue(generator = "increment")
-    private int id;
+    private Long id;
 
     @Column(name = "lab3_ld_apricot_id", nullable = false)
-    private int apricotId;
+    private Long apricotId;
 
     @Column(name = "lab3_ld_order_id", nullable = false)
-    private int orderId;
+    private Long orderId;
 
     @Column(name = "lab3_ld_quantity")
-    private long quantity;
+    private Long quantity;
 }

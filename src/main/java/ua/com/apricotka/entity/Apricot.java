@@ -13,9 +13,9 @@ import javax.persistence.*;
 public class Apricot {
 
     @Id
-    @Column(name = "lab3_ld_apricot_id")
+    @Column(name = "lab3_ld_apricot_id", nullable = false, unique = true)
     @GeneratedValue(generator = "increment")
-    private int id;
+    private Long id;
 
     @Column(name = "lab3_ld_apricot_name", nullable = false, length = 30)
     private String name;
@@ -24,5 +24,5 @@ public class Apricot {
     private String info;
 
     @Column(name = "lab3_ld_price", nullable = false)
-    private double price;
+    private Double price;
 }

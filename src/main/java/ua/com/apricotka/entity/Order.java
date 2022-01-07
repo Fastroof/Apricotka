@@ -13,18 +13,18 @@ import java.time.LocalDateTime;
 public class Order {
 
     @Id
-    @Column(name = "lab3_ld_order_id", nullable = false)
+    @Column(name = "lab3_ld_order_id", nullable = false, unique = true, updatable = false)
     @GeneratedValue(generator = "increment")
-    private int id;
+    private Long id;
 
     @Column(name = "lab3_ld_user_id", nullable = false)
-    private int userId;
+    private Long userId;
 
     @Column(name = "lab3_ld_order_date", nullable = false)
     private LocalDateTime orderDate;
 
     @Column(name = "lab3_ld_total_price", nullable = false)
-    private double totalPrice;
+    private Double totalPrice;
 
     @Column(name = "lab3_ld_order_details")
     private String orderDetails;

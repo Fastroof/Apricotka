@@ -10,10 +10,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "lab3_ld_gallery")
 public class Gallery {
+
     @Id
-    @Column(name = "lab3_ld_group_id", nullable = false)
+    @Column(name = "lab3_ld_group_id", nullable = false, unique = true)
     @GeneratedValue(generator = "increment")
-    private int id;
+    private Long id;
 
     @Column(name = "lab3_ld_group_name")
     private String groupName;
