@@ -10,13 +10,12 @@
     <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
     <link type="text/css" rel="stylesheet" href="css/normalize.css">
     <link type="text/css" rel="stylesheet" href="css/skeleton.css">
-    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/authentication.css">
     <link rel="icon" type="image/svg" href="logo/logo-icon-v2.2.svg">
     <title>Увійти в акаунт</title>
-    <link type="text/css" rel="stylesheet" href="css/auntification.css">
 </head>
 <body>
-<div class="auntification-container">
+<div class="authentication-container">
     <h1>Увійти в акаунт</h1>
     <div th:if="${param.error}">
         Неправильний email і/або пароль
@@ -25,11 +24,11 @@
         Ви вийшли з акаунта
     </div>
     <form th:action="@{/login}" method="post">
-        <div class="auntification-inputs">
+        <div class="authentication-inputs">
             <div><label> Email : <input type="text" name="email"/> </label></div>
             <div><label> Password: <input type="password" name="password"/> </label></div>
         </div>
-        <div class="auntification-button"><input type="submit" value="Увійти"/></div>
+        <div class="authentication-button"><input type="submit" value="Увійти"/></div>
     </form>
     <a href="/registration">Реєстрація нового користувача</a>
     <br>

@@ -3,6 +3,8 @@
 <html>
 <head>
   <%@include file="/WEB-INF/jspf/head.jspf"%>
+  <link type="text/css" rel="stylesheet" href="<spring:url value="css/navigation.css"/>">
+  <link type="text/css" rel="stylesheet" href="<spring:url value="css/tour.css"/>">
   <title>Тур</title>
 </head>
 <body>

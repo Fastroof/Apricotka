@@ -1,9 +1,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!Doctype html>
 <html>
 <head>
   <%@include file="/WEB-INF/jspf/head.jspf"%>
+  <link type="text/css" rel="stylesheet" href="<spring:url value="css/navigation.css"/>">
+  <link type="text/css" rel="stylesheet" href="<spring:url value="css/index.css"/>">
+  <link type="text/css" rel="stylesheet" href="<spring:url value="css/shopping.css"/>">
   <title>Абрикоска</title>
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css">
 </head>
@@ -17,11 +21,13 @@
       </div>
     </div>
   </div>
-  <div class="ecomerce">
+
+  <button id='cart-button' class="trigger cart-button-style"><img class="shop-img" src="<spring:url value="icons/shopping.svg"/>" alt="Корзина"></button>
+
+  <div id="shop" class="shop container">
     <c:forEach var="apricot" items="${apricots}">
-      <br>
-      <div class="kind container">
-        <div class="about-choiced-kind">
+      <div class="product" id="product${apricot.id}">
+        <div class="product-images">
           <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
             <c:forEach var="img" items="${apricotImages}">
               <c:if test="${img.apricotId==apricot.id}"><img src="<spring:url value="pictures/apricots/${img.file}"/>" alt="${img.file}"></c:if>
@@ -30,20 +36,40 @@
         </div>
         <div class="order-box">
           <div>
-            <div class="title-info-about-kind"><c:out value="${apricot.name}"/></div>
-            <div class="text-info-about-kind">
-              <p><c:out value="${apricot.info}"/></p>
+            <div class="product-name"><c:out value="${apricot.name}"/></div>
+            <div class="product-description">
+              <p style="padding-right: 1em"><c:out value="${apricot.info}"/></p>
             </div>
           </div>
           <div class="buy">
-            <div class="price"><c:out value="${apricot.price}"/>$</div>
-            <div class="button"><span>Купити</span></div>
+            <div class="product-price" value="${apricot.price}"><c:out value="${apricot.price}"/>$</div>
+            <div class="add-to-cart" id="add-to-cart${apricot.id}"><span id="add-to-cart-span${apricot.id}">Додати в кошик</span></div>
           </div>
         </div>
       </div>
     </c:forEach>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+  <!-- The Modal -->
+  <div id="modal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" id="modal-header">
+          <span class="close">&times;</span>
+          <h2>Кошик</h2>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <p class="cart-is-empty" style="margin-bottom: 0;">Тут поки що порожньо, але це можна виправити</p>
+        </div>
+        <div class="modal-bottom" id="modal-bottom"></div>
+      </div>
+
+  </div>
+
+  <script src="<spring:url value="js/jquery-3.6.0.min.js"/>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+  <script type="text/javascript" src="<spring:url value="js/shopping.js"/>"></script>
 </body>
 </html>

@@ -9,5 +9,4 @@
 <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
 <link type="text/css" rel="stylesheet" href="<spring:url value="css/normalize.css"/>">
 <link type="text/css" rel="stylesheet" href="<spring:url value="css/skeleton.css"/>">
-<link type="text/css" rel="stylesheet" href="<spring:url value="css/style.css"/>">
 <link rel="icon" type="image/svg" href="<spring:url value="logo/logo-icon-v2.2.svg"/>">

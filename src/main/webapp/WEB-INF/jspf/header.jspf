@@ -1,16 +1,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
-  <nav class="navigation-bar">
-    <img src="<spring:url value="logo/logo-v3.svg"/>" alt="logo" class="logo">
-    <ul class="navigation-bar-links">
-      <li><a href="/" lang="ua">Магазин</a></li>
-      <li><a href="tour" lang="ua">Екскурсія</a></li>
-      <li><a href="gallery" lang="ua">Галерея</a></li>
-      <li><a href="tel:097 408-12-21" lang="ua">✆ 097 408-12-21</a></li>
-      <li><a href="mailto:info@apricotka.com.ua" lang="ua">✉ info@apricotka.com.ua</a></li>
-      <li><a href="order_info"><img class="shop-img" src="<spring:url value="icons/card.svg"/>"></a></li>
-      <li><a href="user_info"><img class="login-img" src="<spring:url value="icons/user.svg"/>"></a></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <nav class="navigation-bar">
+      <img src="<spring:url value="logo/logo-v3.svg"/>" alt="logo" class="logo">
+      <ul class="navigation-bar-links">
+        <li><a href="/" lang="ua">Магазин</a></li>
+        <li><a href="tour" lang="ua">Екскурсія</a></li>
+        <li><a href="gallery" lang="ua">Галерея</a></li>
+        <li><a href="tel:097 408-12-21" lang="ua">✆ 097 408-12-21</a></li>
+        <li><a href="mailto:info@apricotka.com.ua" lang="ua">✉ info@apricotka.com.ua</a></li>
+        <li><a href="user_info"><img class="login-img" src="<spring:url value="icons/user.svg"/>"></a></li>
+      </ul>
+    </nav>
+  </div>
 </header>

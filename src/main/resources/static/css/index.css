@@ -1,0 +1,162 @@
+/* hello start */
+.hello {
+    background: #5B8E25;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    --bg-image-1: url("../slider/slider-1.jpg");
+    --bg-image-2: url("../slider/slider-2.jpg");
+    --bg-image-3: url("../slider/slider-3.jpg");
+
+    animation: changebg 16s infinite;
+}
+
+@keyframes changebg {
+    0%, 100% {
+        background-image: var(--bg-image-1);
+    }
+    33.3% {
+        background-image: var(--bg-image-2);
+    }
+    66.7% {
+        background-image: var(--bg-image-3);
+    }
+}
+
+.content {
+    text-align: center;
+    padding-top: 165px;
+    padding-bottom: 170px;
+}
+
+.content h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 70px;
+    line-height: 75px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.content p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-left: 0;
+    margin-bottom: 40px;
+}
+
+.strokeme {
+    text-shadow: 0 0 0.1em #000000;
+}
+
+/* hello end */
+
+/* shop start */
+
+.shop {
+    margin-bottom: 80px;
+}
+
+.product-name {
+    font-family: Montserrat Alternate;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 45px;
+    line-height: 48px;
+    letter-spacing: 2px;
+    color: #1C1C1D;
+}
+
+.product-description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0.45px;
+    color: #474A57;
+}
+
+.product {
+    margin-top: 1em;
+    border: 1px solid #ababab;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+}
+
+.order-box {
+    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0.5em;
+}
+
+.buy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.product-price {
+    margin-right: 16px;
+}
+
+.add-to-cart {
+    text-align: center;
+    display: flex;
+    border-radius: 4px;
+    background-color: #00a046;
+    border: none;
+    padding: 0 0.5em;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 1.5rem
+}
+
+.add-to-cart span {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    color: #fff;
+}
+
+.add-to-cart:hover{
+    opacity: 0.85;
+}
+
+.cart-button-style {
+    border-style: none;
+    position: fixed;
+    top: 0.4rem;
+    right: 0;
+    width: 6em;
+    padding: 1em 1em;
+    margin: 0 3em 0 0;
+    background: #5B8E25;
+    color: white;
+    transition: background .5s;
+    border-radius: 4px;
+}
+
+.cart-button-style:hover, #checkout:hover, #apply-promo:hover, .keep-shopping:hover {
+    background: #4be132;
+    color: white;
+}
+
+.cart-button-style:active, #checkout:active, #apply-promo:active, .keep-shopping:active {
+    background: #ff6884;
+    color: white;
+}
+
+/* shop end */
