@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -44,15 +45,13 @@
       </form>
     </div>
   </div>
-  <div class="col-25">
     <div class="container">
-      <h4>Кошик <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <h4>Кошик <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><c:out value="${items.size()}"/></b></span></h4>
+      <c:forEach items="${items}" var="item">
+        <p><a>${item.apricotName}</a> <span class="price">$${item.price}</span></p>
+      </c:forEach>
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      <p>Всього <span class="price" style="color:black"><b>$${totalPrice}</b></span></p>
     </div>
   </div>
 </div>
