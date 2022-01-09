@@ -10,7 +10,7 @@
         <li><a href="gallery" lang="ua">Галерея</a></li>
         <li><a href="tel:097 408-12-21" lang="ua">✆ 097 408-12-21</a></li>
         <li><a href="mailto:info@apricotka.com.ua" lang="ua">✉ info@apricotka.com.ua</a></li>
-        <li><a href="user_info"><img class="login-img" src="<spring:url value="icons/user.svg"/>"></a></li>
+        <li><a href="order_info"><img class="find-img" src="<spring:url value="icons/find.svg"/>"></a></li>
       </ul>
     </nav>
   </div>

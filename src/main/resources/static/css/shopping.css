@@ -54,8 +54,10 @@
 }
 
 .item-img {
-    max-height: 120px;
+    height: 120px;
+    width: 120px;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 .order-item-info {
@@ -71,7 +73,7 @@
 }
 
 .item-name {
-    margin: 0 0.5em;
+    margin: 0 1em;
 }
 
 .item-delete {
@@ -89,16 +91,15 @@
 
 .input-price {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: space-between;
 }
 
 .item-price {
-    margin-left: 20%;
     align-self: center;
 }
 
 .input {
+    margin-left: 1em;
     display: flex;
     border: 1px solid #d1bebe;
     border-radius: 8px;
@@ -138,4 +139,40 @@ hr {
 
 .modal-bottom {
     height: 0.25em;
+}
+
+#create-order {
+    border-top: 1px solid #e9e9e9;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 0.5em 20px;
+}
+
+#create-order-button {
+    text-align: center;
+    display: flex;
+    border-radius: 4px;
+    background-color: #00a046;
+    border: none;
+    padding: 0 0.5em;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    text-decoration-line: none;
+}
+
+#create-order-button span {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    color: #fff;
+}
+
+#create-order-button:hover{
+    opacity: 0.90;
 }

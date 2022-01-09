@@ -17,6 +17,7 @@
 <body>
   <div class="authentication-container">
     <h1>Реєстрація нового користувача</h1>
+    <p>Після успішної реєстрації потрібно зайти до акаунту за новоствореними email та паролем</p>
     <form th:action="@{/registration}" th:object="${user}" method="post">
       <div class="authentication-inputs">
         <div><label> Email : <input type="email" th:field="*{email}" required maxlength="255"/> </label></div>

@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import ua.com.apricotka.security.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -29,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         String[] resources = new String[]{
-                "/", "/tour","/gallery","/registration", "/register_success",
+                "/", "/tour","/gallery","/registration", "/register_success", "/order_items", "/order",
                 "/css/**","/icons/**","/logo/**","/js/**","/slider/**", "/pictures/apricots/**", "/pictures/gallery/**"
         };
 
@@ -42,10 +41,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login")
                     .usernameParameter("email")
                     .permitAll()
-                    .defaultSuccessUrl("/success");
-//                .and()
-//                    .logout()
-//                    .permitAll();
+                    .defaultSuccessUrl("/success")
+                .and()
+                    .csrf().disable().cors();
     }
 
     @Bean

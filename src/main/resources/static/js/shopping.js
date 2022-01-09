@@ -1,16 +1,16 @@
-var btn = document.getElementById("cart-button")
+const btn = document.getElementById("cart-button");
 
+const modal = document.getElementById("modal");
 btn.onclick = function() {
     modal.style.display = "block"
 }
 
-var span = document.getElementsByClassName("close")[0]
+const span = document.getElementsByClassName("close")[0];
 
 span.onclick = function() {
     modal.style.display = "none"
 }
 
-var modal = document.getElementById("modal")
 
 window.onclick = function(event) {
     if (event.target === modal) {
@@ -21,6 +21,7 @@ window.onclick = function(event) {
 var orderItems = []
 var orderItemsProductsId = []
 
+const createOrder = document.getElementById("create-order");
 const btns = document.querySelectorAll('div[id^=add-to-cart]')
 
 btns.forEach(btn => {
@@ -34,18 +35,19 @@ btns.forEach(btn => {
         var imgF = product.getElementsByClassName("fotorama__img")[0].getAttribute('src')
         var name = product.getElementsByClassName("product-name")[0].textContent
         var price = product.getElementsByClassName("product-price")[0].getAttribute('value')
-        orderItems.push([productId, imgF, name, price, 1])
+        orderItems.push([productId, imgF, name, price, 1, price])
         orderItemsProductsId.push(productId)
         refreshCart(orderItems.length-1)
     })
 })
 
 function refreshCart(len) {
-    var mb = document.getElementById('modal-body')
+    const mb = document.getElementById('modal-body');
     if (len !== 0) {
         mb.innerHTML += "<hr class=\"space-between-items\">\n"
     } else {
         mb.getElementsByClassName("cart-is-empty")[0].style.display = "none"
+        createOrder.style.display = "flex"
     }
     mb.innerHTML +=
         "          <div class=\"order-item\">\n" +
@@ -61,44 +63,58 @@ function refreshCart(len) {
         "                <div class=\"input\">\n" +
         "                  <button class=\"minus\" id=\"minus-" + orderItems[len][0] + "\">-</button>\n" +
         "                  <label>\n" +
-        "                    <input class=\"quantity\" id=\"quantity-" + orderItems[len][0] + "\" value=\"1\">\n" +
+        "                    <input class=\"quantity\" id=\"quantity-" + orderItems[len][0] + "\">\n" +
         "                  </label>\n" +
         "                  <button class=\"plus\" id=\"plus-"+ orderItems[len][0] + "\">+</button>\n" +
         "                </div>\n" +
-        "                <span class=\"item-price\">" + orderItems[len][3] + "</span>\n" +
+        "                <span class=\"item-price\" id=\"item-price-" + orderItems[len][0] + "\">$" + orderItems[len][3] + "</span>\n" +
         "              </div>\n" +
         "            </div>\n" +
         "          </div>"
+    updateInputs()
     updateListeners()
+}
+
+function updateInputs() {
+    const inputs = document.querySelectorAll('input[id^=quantity-]')
+    let index = 0;
+    inputs.forEach(input => {
+        input.value = orderItems[index][4]
+        index += 1
+    })
 }
 
 function updateListeners() {
     const dBbtns = document.querySelectorAll('span[id^=item-delete]')
     dBbtns.forEach(btn => {
         btn.addEventListener('click', event => {
-            var deletePID = btn.id.replace('item-delete','')
+            let hr;
+            const deletePID = btn.id.replace('item-delete', '');
 
             document.getElementById("add-to-cart-span" + deletePID).textContent="Додати в кошик"
             document.getElementById("add-to-cart" + deletePID).setAttribute("style", "")
 
-            var deleteID = orderItemsProductsId.indexOf(deletePID)
+            const deleteID = orderItemsProductsId.indexOf(deletePID);
             if (deleteID !== 0) {
-                var hr = document.getElementsByClassName("space-between-items")[deleteID-1]
+                hr = document.getElementsByClassName("space-between-items")[deleteID-1];
                 hr.parentNode.removeChild(hr)
             }
             if ((deleteID === 0) && (orderItems.length > 1)) {
-                var hr = document.getElementsByClassName("space-between-items")[deleteID]
+                hr = document.getElementsByClassName("space-between-items")[deleteID];
                 hr.parentNode.removeChild(hr)
             }
-            var elem = document.getElementsByClassName("order-item")[deleteID]
+            const elem = document.getElementsByClassName("order-item")[deleteID];
             elem.parentNode.removeChild(elem)
             orderItems.splice(deleteID, 1)
             orderItemsProductsId.splice(deleteID, 1)
+            updateTotal()
             if (orderItems.length === 0) {
                 document.getElementById('modal-body').getElementsByClassName("cart-is-empty")[0].style.display = "block"
+                createOrder.style.display = "none"
             }
         })
     })
+    updateTotal()
     updateListenersForMinuss()
     updateListenersForPluss()
     updateListenersForInputs()
@@ -110,10 +126,11 @@ function updateListenersForMinuss() {
         btn.addEventListener('click', event => {
             var pid = btn.id.replace('minus-','')
             var quantity = document.getElementById("quantity-" + pid)
-            var q = parseInt(quantity.getAttribute("value")) - 1
-            quantity.setAttribute("value", q.toString())
+            var q = parseInt(quantity.value) - 1
+            quantity.value = q
             var id = orderItemsProductsId.indexOf(pid)
             orderItems[id][4] = q
+            priceChange(pid)
         })
     })
 }
@@ -124,10 +141,11 @@ function updateListenersForPluss() {
         btn.addEventListener('click', event => {
             var pid = btn.id.replace('plus-','')
             var quantity = document.getElementById("quantity-" + pid)
-            var q = parseInt(quantity.getAttribute("value")) + 1
-            quantity.setAttribute("value", q.toString())
+            var q = parseInt(quantity.value) + 1
+            quantity.value = q
             var id = orderItemsProductsId.indexOf(pid)
             orderItems[id][4] = q
+            priceChange(pid)
         })
     })
 }
@@ -136,12 +154,27 @@ function updateListenersForInputs() {
     const inputs = document.querySelectorAll('input[id^=quantity-]')
     inputs.forEach(input => {
         input.addEventListener('change', event => {
-            console.info(orderItems)
-            var pid = btn.id.replace('quantity-','')
+            var pid = input.id.replace('quantity-','')
             var id = orderItemsProductsId.indexOf(pid)
-            orderItems[id][4] = parseInt(input.textContent)
-            input.setAttribute("value", input.textContent)
-            console.info(orderItems)
+            orderItems[id][4] = parseInt(input.value)
+            priceChange(pid)
         })
     })
+}
+
+function priceChange(pid) {
+    var price = document.getElementById("item-price-" + pid)
+    var id = orderItemsProductsId.indexOf(pid)
+    orderItems[id][5] = Number((orderItems[id][3]*orderItems[id][4]).toFixed(2));
+    price.textContent = orderItems[id][5]
+    updateTotal()
+}
+
+function updateTotal() {
+    var total = document.getElementById("total")
+    let temp = 0
+    orderItems.forEach(item => {
+        temp += item[5];
+    })
+    total.textContent = (parseFloat(temp)).toFixed(2)
 }

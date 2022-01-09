@@ -50,11 +50,7 @@
     </c:forEach>
   </div>
 
-
-  <!-- The Modal -->
   <div id="modal" class="modal">
-
-      <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header" id="modal-header">
           <span class="close">&times;</span>
@@ -63,13 +59,35 @@
         <div class="modal-body" id="modal-body">
           <p class="cart-is-empty" style="margin-bottom: 0;">Тут поки що порожньо, але це можна виправити</p>
         </div>
-        <div class="modal-bottom" id="modal-bottom"></div>
+        <div style="display: none" id="create-order">
+          <span>Всього: $<span id="total"></span></span>
+            <a href="/order" id="create-order-button"><span>Овормити замовленя</span></a>
+        </div>
+        <div class="modal-bottom" id="modal-bottom">
+        </div>
       </div>
-
   </div>
 
   <script src="<spring:url value="js/jquery-3.6.0.min.js"/>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
   <script type="text/javascript" src="<spring:url value="js/shopping.js"/>"></script>
+  <script type="text/javascript">
+      jQuery(function() {
+        $("#create-order-button").on('click', function() {
+            $.ajax({
+                type: "POST",
+                url: "/order_items",
+                contentType: "application/json",
+                data: JSON.stringify(orderItems),
+                success: function (res) {
+                  console.info(res);
+                },
+                error: function(msg){
+                  console.info(msg)
+                }
+            });
+        })
+      })
+  </script>
 </body>
 </html>
