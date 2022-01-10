@@ -28,4 +28,19 @@ public class Order {
 
     @Column(name = "lab3_ld_order_details")
     private String orderDetails;
+
+    @Column(name = "lab3_ld_fullname")
+    private String fullname;
+
+    @Column(name = "lab3_ld_email")
+    private String email;
+
+    @Column(name = "lab3_ld_address")
+    private String address;
+
+    @Column(name = "lab3_ld_city")
+    private String city;
+
+    @Column(name = "lab3_ld_payment")
+    private String payment;
 }

@@ -61,7 +61,7 @@
         </div>
         <div style="display: none" id="create-order">
           <span>Всього: $<span id="total"></span></span>
-            <a href="/order" id="create-order-button"><span>Овормити замовленя</span></a>
+            <a id="create-order-button"><span>Оформити замовленя</span></a>
         </div>
         <div class="modal-bottom" id="modal-bottom">
         </div>
@@ -78,9 +78,10 @@
                 type: "POST",
                 url: "/order_items",
                 contentType: "application/json",
-                data: JSON.stringify(orderItems),
+                data: JSON.stringify(generateOrderRequest()),
                 success: function (res) {
                   console.info(res);
+                  window.location.href += "order"
                 },
                 error: function(msg){
                   console.info(msg)

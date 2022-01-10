@@ -29,7 +29,7 @@ public class AuthController {
 
     @PostMapping("/registration")
     public String processRegister(ModelMap model, UserRegistrationRequest request) {
-        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+        if (userRepository.findByEmail(request.getEmail()) != null) {
             model.addAttribute("msg", String.format("Користувач з email %s вже зареєстрований", request.getEmail()));
             model.addAttribute("link", "/registration");
             model.addAttribute("text", "Натисніть, щоб спробувати ще раз");

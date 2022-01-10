@@ -35,7 +35,7 @@ btns.forEach(btn => {
         var imgF = product.getElementsByClassName("fotorama__img")[0].getAttribute('src')
         var name = product.getElementsByClassName("product-name")[0].textContent
         var price = product.getElementsByClassName("product-price")[0].getAttribute('value')
-        orderItems.push([productId, imgF, name, price, 1, price])
+        orderItems.push([productId, imgF, name, price, 1, parseFloat(price)])
         orderItemsProductsId.push(productId)
         refreshCart(orderItems.length-1)
     })
@@ -67,7 +67,10 @@ function refreshCart(len) {
         "                  </label>\n" +
         "                  <button class=\"plus\" id=\"plus-"+ orderItems[len][0] + "\">+</button>\n" +
         "                </div>\n" +
-        "                <span class=\"item-price\" id=\"item-price-" + orderItems[len][0] + "\">$" + orderItems[len][3] + "</span>\n" +
+        "                <div class=\"price-div\">\n" +
+        "                   <span>$</span>\n" +
+        "                   <span class=\"item-price\" id=\"item-price-" + orderItems[len][0] + "\">" + orderItems[len][3] + "</span>\n" +
+        "                </div>\n"+
         "              </div>\n" +
         "            </div>\n" +
         "          </div>"
@@ -170,11 +173,28 @@ function priceChange(pid) {
     updateTotal()
 }
 
+const total = document.getElementById("total");
+
 function updateTotal() {
-    var total = document.getElementById("total")
     let temp = 0
     orderItems.forEach(item => {
         temp += item[5];
     })
     total.textContent = (parseFloat(temp)).toFixed(2)
+}
+
+function generateOrderRequest() {
+    var orderItemRequests = [];
+    orderItems.forEach(orderItem => {
+        orderItemRequests.push({
+            'apricotId': orderItem[0],
+            'quantity': orderItem[4],
+            'price': orderItem[5],
+            'apricotName': orderItem[2]
+        })
+    });
+    return {
+        'orderItemRequests': orderItemRequests,
+        'totalPrice': total.textContent
+    };
 }

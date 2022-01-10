@@ -8,8 +8,11 @@
 </head>
 <body>
   <div class="container" style="align-items: center; display: flex; flex-direction: column;">
-    <h3>${msg}</h3>
-    <h4><a href="${link}">${text}</a></h4>
+    <h3><c:out value="${msg}"/></h3>
+    <c:if test="${details != null}">
+      <pre><c:out value="${details}"/></pre>
+    </c:if>
+    <h4><a href="<c:out value="${link}"/>"><c:out value="${text}"/></a></h4>
   </div>
 </body>
 </html>
