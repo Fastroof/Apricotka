@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
+  <link type="text/css" rel="stylesheet" href="css/normalize.css">
+  <link type="text/css" rel="stylesheet" href="css/skeleton.css">
+  <link type="text/css" rel="stylesheet" href="css/authentication.css">
+  <link rel="icon" type="image/svg" href="logo/logo-icon-v2.2.svg">
+  <title>Реєстрація нового користувача</title>
+</head>
+<body>
+  <div class="authentication-container">
+    <h1>Реєстрація нового користувача</h1>
+    <p>Після успішної реєстрації потрібно зайти до акаунту за новоствореними email та паролем</p>
+    <form th:action="@{/registration}" th:object="${user}" method="post">
+      <div class="authentication-inputs">
+        <div><label> Email : <input type="email" th:field="*{email}" required maxlength="255"/> </label></div>
+        <div><label> Пароль : <input type="password" th:field="*{password}" required minlength="8"/> </label></div>
+        <div><label> Ім'я : <input type="text" th:field="*{firstName}" required maxlength="255"/> </label></div>
+        <div><label> Прізвище : <input type="text" th:field="*{lastName}" required maxlength="255"/> </label></div>
+      </div>
+      <div class="authentication-button"><input type="submit" value="Зареєструватися"/></div>
+    </form>
+    <a href="/login">Увійти в акаунт</a>
+    <br>
+    <a href="/">До магазину</a>
+  </div>
+</body>
+</html>
