@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -45,10 +46,10 @@
     <div class="container">
       <h4>Кошик <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><c:out value="${items.size()}"/></b></span></h4>
       <c:forEach items="${items}" var="item">
-        <p><a><c:out value="${item.apricotName}"/></a> <span class="price">$<c:out value="${item.price}"/></span></p>
+        <p><a><c:out value="${item.apricotName}"/></a> <span class="price"><c:out value="${item.price}"/>$ ≈ <fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${item.price * dollarRate}"/>₴</span></p>
       </c:forEach>
       <hr>
-      <p>Всього <span class="price" style="color:black"><b>$<c:out value="${totalPrice}"/></b></span></p>
+      <p>Всього <span class="price" style="color:black"><b><c:out value="${totalPrice}"/>$ ≈ <fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice * dollarRate}"/>₴</b></span></p>
     </div>
   </div>
 </div>

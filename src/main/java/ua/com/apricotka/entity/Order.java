@@ -26,6 +26,9 @@ public class Order {
     @Column(name = "lab3_ld_total_price", nullable = false)
     private Double totalPrice;
 
+    @Column(name = "lab3_ld_total_price_hryvnia")
+    private Double totalPriceHryvnia;
+
     @Column(name = "lab3_ld_order_details")
     private String orderDetails;
 

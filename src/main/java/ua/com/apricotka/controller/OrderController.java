@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.com.apricotka.entity.Order;
 import ua.com.apricotka.entity.OrderItem;
 import ua.com.apricotka.entity.User;
+import ua.com.apricotka.rate.DollarRate;
 import ua.com.apricotka.repository.OrderItemRepository;
 import ua.com.apricotka.repository.OrderRepository;
 import ua.com.apricotka.repository.UserRepository;
@@ -53,6 +54,7 @@ public class OrderController {
         }
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("items", orderItemRequests);
+        model.addAttribute("dollarRate", DollarRate.getDollarRate());
         log.info("Order page showed");
         return "order";
     }
@@ -65,6 +67,7 @@ public class OrderController {
         order.setUserId(user.getId());
         order.setOrderDate(LocalDateTime.now());
         order.setTotalPrice(totalPrice);
+        order.setTotalPriceHryvnia(Double.valueOf(String.format("%.2f", totalPrice * DollarRate.getDollarRate())));
         order.setOrderDetails("Створено");
 
         order.setFullname(form.getFname());
