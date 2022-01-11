@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import ua.com.apricotka.entity.Order;
 import ua.com.apricotka.repository.OrderRepository;
 
@@ -23,8 +23,8 @@ public class OrderInfoController {
         return "order_info";
     }
 
-    @GetMapping("/order_info/orders?id={orderId}")
-    public String showOrderInfoPageWithInformationAboutSearchingOrderByID(@PathVariable long orderId, ModelMap model) {
+    @PostMapping("/order_info")
+    public String showOrderInfoPageWithInformationAboutSearchingOrderByID(long orderId, ModelMap model) {
         String info = "Замовлення номер " + orderId + "не знайдено";
         Order order = orderRepository.findById(orderId);
         if (order != null) {
@@ -39,5 +39,4 @@ public class OrderInfoController {
         log.info("Order info page with information about order with id" + orderId + "showed");
         return "order_info";
     }
-
 }
