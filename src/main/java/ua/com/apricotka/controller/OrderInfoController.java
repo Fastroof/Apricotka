@@ -25,7 +25,7 @@ public class OrderInfoController {
 
     @PostMapping("/order_info")
     public String showOrderInfoPageWithInformationAboutSearchingOrderByID(long orderId, ModelMap model) {
-        String info = "Замовлення номер " + orderId + "не знайдено";
+        String info = "Замовлення номер " + orderId + " не знайдено";
         Order order = orderRepository.findById(orderId);
         if (order != null) {
             info = "Замовлення номер: " + order.getId() +

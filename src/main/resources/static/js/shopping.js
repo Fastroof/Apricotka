@@ -1,4 +1,5 @@
 const btn = document.getElementById("cart-button");
+const dollarRate = parseFloat(document.getElementById("dollarRate").textContent);
 
 const modal = document.getElementById("modal");
 btn.onclick = function() {
@@ -70,6 +71,8 @@ function refreshCart(len) {
         "                <div class=\"price-div\">\n" +
         "                   <span>$</span>\n" +
         "                   <span class=\"item-price\" id=\"item-price-" + orderItems[len][0] + "\">" + orderItems[len][3] + "</span>\n" +
+        "                   <span> ≈ ₴</span>\n" +
+        "                   <span class=\"item-price-hrn\" id=\"item-price-hrn-" + orderItems[len][0] + "\">" + (orderItems[len][3] * dollarRate).toFixed(2) + "</span>\n" +
         "                </div>\n"+
         "              </div>\n" +
         "            </div>\n" +
@@ -182,13 +185,16 @@ function updateListenersForInputs() {
 
 function priceChange(pid) {
     var price = document.getElementById("item-price-" + pid)
+    var priceHrn = document.getElementById("item-price-hrn-" + pid)
     var id = orderItemsProductsId.indexOf(pid)
     orderItems[id][5] = Number((orderItems[id][3]*orderItems[id][4]).toFixed(2));
     price.textContent = orderItems[id][5]
+    priceHrn.textContent = (orderItems[id][5] * dollarRate).toFixed(2)
     updateTotal()
 }
 
 const total = document.getElementById("total");
+const totalHrn = document.getElementById("total-hrn");
 
 function updateTotal() {
     let temp = 0
@@ -196,6 +202,7 @@ function updateTotal() {
         temp += item[5];
     })
     total.textContent = (parseFloat(temp)).toFixed(2)
+    totalHrn.textContent = (parseFloat(temp)*dollarRate).toFixed(2)
 }
 
 function generateOrderRequest() {
