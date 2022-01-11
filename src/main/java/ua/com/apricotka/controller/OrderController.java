@@ -16,6 +16,8 @@ import ua.com.apricotka.request.OrderFormRequest;
 import ua.com.apricotka.request.OrderItemRequest;
 import ua.com.apricotka.request.OrderRequest;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -67,7 +69,7 @@ public class OrderController {
         order.setUserId(user.getId());
         order.setOrderDate(LocalDateTime.now());
         order.setTotalPrice(totalPrice);
-        order.setTotalPriceHryvnia(Double.valueOf(String.format("%.2f", totalPrice * DollarRate.getDollarRate())));
+        order.setTotalPriceHryvnia((new BigDecimal(totalPrice * DollarRate.getDollarRate()).setScale(2, RoundingMode.HALF_UP)).doubleValue());
         order.setOrderDetails("Створено");
 
         order.setFullname(form.getFname());
