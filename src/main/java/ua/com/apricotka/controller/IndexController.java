@@ -1,5 +1,6 @@
 package ua.com.apricotka.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,12 +19,17 @@ public class IndexController {
     @Autowired
     private ApricotImageRepository apricotImageRepository;
 
+    private static final Logger log = Logger.getLogger(IndexController.class);
+
     @GetMapping("/")
     public String showIndexPage(ModelMap model) {
         Iterable<Apricot> apricots = apricotRepository.findAll();
+        log.info("All apricots was got");
         Iterable<ApricotImage> apricotImages = apricotImageRepository.findAll();
+        log.info("All apricots images was got");
         model.addAttribute("apricots", apricots);
         model.addAttribute("apricotImages", apricotImages);
+        log.info("Index page showed");
         return "index";
     }
 }

@@ -1,5 +1,6 @@
 package ua.com.apricotka.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,12 +32,16 @@ public class OrderController {
     @Autowired
     private OrderItemRepository orderItemRepository;
 
+    private static final Logger log = Logger.getLogger(OrderController.class);
+
     @PostMapping("/order_items")
     @ResponseBody
-    public String redirectToOrderPage(@RequestBody OrderRequest orderRequest) {
+    public void redirectToOrderPage(@RequestBody OrderRequest orderRequest) {
         orderItemRequests = orderRequest.getOrderItemRequests();
+        log.info("Order item requests saved");
         totalPrice = orderRequest.getTotalPrice();
-        return "redirect...";
+        log.info("Total price saved");
+        log.info("Redirect ...");
     }
 
     @GetMapping("/order")
@@ -48,6 +53,7 @@ public class OrderController {
         }
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("items", orderItemRequests);
+        log.info("Order page showed");
         return "order";
     }
 
@@ -67,6 +73,7 @@ public class OrderController {
         order.setCity(form.getCity());
         order.setPayment(form.getPayment());
         orderRepository.save(order);
+        log.info("Order was saved");
 
         orderItemRequests.forEach(orderItemRequest -> {
             OrderItem orderItem = new OrderItem();
@@ -75,6 +82,7 @@ public class OrderController {
             orderItem.setQuantity(orderItemRequest.getQuantity());
             orderItemRepository.save(orderItem);
         });
+        log.info("Order items was saved");
 
         String details = "Замовлення номер: " + order.getId() +
                 "\nЗамовник: " + form.getFname() +
@@ -87,6 +95,7 @@ public class OrderController {
         model.addAttribute("text", "Натисніть, щоб перейти до магазину");
         model.addAttribute("link", "/");
         model.addAttribute("msg", "Замовлення сформовано");
+        log.info("Info page showed");
         return "info";
     }
 }
