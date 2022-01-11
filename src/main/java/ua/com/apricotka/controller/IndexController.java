@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import ua.com.apricotka.entity.Apricot;
 import ua.com.apricotka.entity.ApricotImage;
+import ua.com.apricotka.rate.DollarRate;
 import ua.com.apricotka.repository.ApricotImageRepository;
 import ua.com.apricotka.repository.ApricotRepository;
 
@@ -29,6 +30,7 @@ public class IndexController {
         log.info("All apricots images was got");
         model.addAttribute("apricots", apricots);
         model.addAttribute("apricotImages", apricotImages);
+        model.addAttribute("dollarRate", DollarRate.getDollarRate());
         log.info("Index page showed");
         return "index";
     }

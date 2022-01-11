@@ -20,7 +20,7 @@ public class AuthController {
     private static final Logger log = Logger.getLogger(AuthController.class);
 
     @GetMapping("/login")
-    public String showLoginPage(ModelMap model) {
+    public String showLoginPage() {
         log.info("Login page showed");
         return "thymeleaf/login";
     }
