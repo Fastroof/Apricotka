@@ -20,13 +20,13 @@
           <div class="col-50">
             <h3>Інформація про замовника</h3>
             <label for="fname"><i class="fa fa-user"></i> ПІБ</label>
-            <input type="text" id="fname" value="<c:out value="${fullName}"/>" name="fname" placeholder="Шевченко Тарас Григорович">
+            <input required minlength="1" type="text" id="fname" value="<c:out value="${fullName}"/>" name="fname" placeholder="Шевченко Тарас Григорович">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" value="<c:out value="${email}"/>" placeholder="shevchenko@gmail.com">
+            <input required minlength="1" type="text" id="email" name="email" value="<c:out value="${email}"/>" placeholder="shevchenko@gmail.com">
             <label for="adr"><i class="fa fa-address-card-o"></i> Адреса</label>
-            <input type="text" id="adr" name="adr" placeholder="вул. Свободи 23">
+            <input required minlength="1" type="text" id="adr" name="adr" placeholder="вул. Свободи 23">
             <label for="city"><i class="fa fa-institution"></i> Населений пункт</label>
-            <input type="text" id="city" name="city" placeholder="м. Березівка, Одеська обл.">
+            <input required minlength="1" type="text" id="city" name="city" placeholder="м. Березівка, Одеська обл.">
           </div>
           <div class="col-50">
             <h3>Оплата</h3>

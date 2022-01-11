@@ -63,7 +63,7 @@ function refreshCart(len) {
         "                <div class=\"input\">\n" +
         "                  <button class=\"minus\" id=\"minus-" + orderItems[len][0] + "\">-</button>\n" +
         "                  <label>\n" +
-        "                    <input class=\"quantity\" id=\"quantity-" + orderItems[len][0] + "\">\n" +
+        "                    <input class=\"quantity\" minlength=\"1\" id=\"quantity-" + orderItems[len][0] + "\">\n" +
         "                  </label>\n" +
         "                  <button class=\"plus\" id=\"plus-"+ orderItems[len][0] + "\">+</button>\n" +
         "                </div>\n" +
@@ -129,11 +129,13 @@ function updateListenersForMinuss() {
         btn.addEventListener('click', event => {
             var pid = btn.id.replace('minus-','')
             var quantity = document.getElementById("quantity-" + pid)
-            var q = parseInt(quantity.value) - 1
-            quantity.value = q
-            var id = orderItemsProductsId.indexOf(pid)
-            orderItems[id][4] = q
-            priceChange(pid)
+            let q = parseInt(quantity.value) - 1
+            if (q >= 1) {
+                quantity.value = q
+                var id = orderItemsProductsId.indexOf(pid)
+                orderItems[id][4] = q
+                priceChange(pid)
+            }
         })
     })
 }
@@ -156,10 +158,23 @@ function updateListenersForPluss() {
 function updateListenersForInputs() {
     const inputs = document.querySelectorAll('input[id^=quantity-]')
     inputs.forEach(input => {
-        input.addEventListener('change', event => {
+        input.addEventListener("keyup", event => {
             var pid = input.id.replace('quantity-','')
             var id = orderItemsProductsId.indexOf(pid)
-            orderItems[id][4] = parseInt(input.value)
+            var v = input.value;
+            if (input.value === '') {
+                orderItems[id][4] = 1
+                input.value = 1
+            } else if (/^\d*$/.test(v)) {
+                if (parseInt(v) < 1) {
+                    orderItems[id][4] = 1
+                    input.value = 1
+                } else {
+                    orderItems[id][4] = parseInt(input.value)
+                }
+            } else {
+                input.value = orderItems[id][4]
+            }
             priceChange(pid)
         })
     })
