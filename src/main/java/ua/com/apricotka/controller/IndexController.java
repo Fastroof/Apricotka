@@ -20,6 +20,9 @@ public class IndexController {
     @Autowired
     private ApricotImageRepository apricotImageRepository;
 
+    @Autowired
+    private DollarRate dollarRate = new DollarRate();
+
     private static final Logger log = Logger.getLogger(IndexController.class);
 
     @GetMapping("/")
@@ -30,7 +33,7 @@ public class IndexController {
         log.info("All apricots images was got");
         model.addAttribute("apricots", apricots);
         model.addAttribute("apricotImages", apricotImages);
-        model.addAttribute("dollarRate", DollarRate.getDollarRate());
+        model.addAttribute("dollarRate", dollarRate.getRate());
         log.info("Index page showed");
         return "index";
     }

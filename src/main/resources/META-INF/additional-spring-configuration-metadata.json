@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "linkToNBU",
+      "type": "java.lang.String",
+      "description": "link to NBU USD information."
+  }
+] }
