@@ -34,6 +34,8 @@ public class OrderController {
     private OrderRepository orderRepository;
     @Autowired
     private OrderItemRepository orderItemRepository;
+    @Autowired
+    private DollarRate dollarRate = new DollarRate();
 
     private static final Logger log = Logger.getLogger(OrderController.class);
 
@@ -56,7 +58,7 @@ public class OrderController {
         }
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("items", orderItemRequests);
-        model.addAttribute("dollarRate", DollarRate.getDollarRate());
+        model.addAttribute("dollarRate", dollarRate.getRate());
         log.info("Order page showed");
         return "order";
     }
@@ -69,7 +71,7 @@ public class OrderController {
         order.setUserId(user.getId());
         order.setOrderDate(LocalDateTime.now());
         order.setTotalPrice(totalPrice);
-        order.setTotalPriceHryvnia((new BigDecimal(totalPrice * DollarRate.getDollarRate()).setScale(2, RoundingMode.HALF_UP)).doubleValue());
+        order.setTotalPriceHryvnia((new BigDecimal(totalPrice * dollarRate.getRate()).setScale(2, RoundingMode.HALF_UP)).doubleValue());
         order.setOrderDetails("Створено");
 
         order.setFullname(form.getFname());
