@@ -151,7 +151,6 @@ Insert into LAB3_LD_APRICOT_IMAGES (LAB3_LD_APRICOT_IMAGE_ID,LAB3_LD_APRICOT_ID,
 Insert into LAB3_LD_APRICOT_IMAGES (LAB3_LD_APRICOT_IMAGE_ID,LAB3_LD_APRICOT_ID,LAB3_LD_IMAGE_FILE) values ('23','18','Farklo2.jpg');
 Insert into LAB3_LD_APRICOT_IMAGES (LAB3_LD_APRICOT_IMAGE_ID,LAB3_LD_APRICOT_ID,LAB3_LD_IMAGE_FILE) values ('24','19','Tsunami1.jpg');
 Insert into LAB3_LD_APRICOT_IMAGES (LAB3_LD_APRICOT_IMAGE_ID,LAB3_LD_APRICOT_ID,LAB3_LD_IMAGE_FILE) values ('25','20','BlackPeach1.jpg');
-SET DEFINE OFF;
 Insert into LAB3_LD_APRICOTS (LAB3_LD_APRICOT_ID,LAB3_LD_APRICOT_NAME,LAB3_LD_INFO,LAB3_LD_PRICE) values ('18','Фаркло','Абрикос Фаркло – новий надпізній сорт абрикосу селекції Франції. Плоди великі, масою 50 - 70 грам, округло-овальної форми, звужені до вершини, чітким швом, іноді чітко виділяється "носик" вершини плода, яскраво-жовтого кольору, іноді з нечітким крапчастим рум''янцем з сонячного боку. В основному плоди монотонні у кольорі, на що позначаються пізні терміни дозрівання та нестача тепла в цей період. М''якуш щільний, середньої соковитості, злегка сухуватий, хрумкий, що властиво багатьом пізнім сортам. Смакові якості хороші, солодкі, із невеликим вмістом кислоти.','5,95');
 Insert into LAB3_LD_APRICOTS (LAB3_LD_APRICOT_ID,LAB3_LD_APRICOT_NAME,LAB3_LD_INFO,LAB3_LD_PRICE) values ('19','Цунамі','Абрикос Цунамі – новий ранній сорт абрикосу французької селекції. Плоди дуже великі, масою 70 - 90 грам і більше, подовжено-циліндричної форми, оранжево-жовті, покриті на 60-70% червоним рум''янцем. М''якуш помаранчевий, соковитий, смак солодкий, дуже хороший, збалансований.','6,29');
 Insert into LAB3_LD_APRICOTS (LAB3_LD_APRICOT_ID,LAB3_LD_APRICOT_NAME,LAB3_LD_INFO,LAB3_LD_PRICE) values ('20','Чорний Персиковий','Абрикос Чорний Персиковий - гібрид між абрикосом та аличем, взяв усе найкраще від батьків, відрізняється привабливими плодами та високими смаковими якостями. Це літній сорт, плоди дозрівають пізно у серпні. М''якуш має ніжний, абрикосовий аромат. Маса плодів дорівнює приблизно 40 грам, формою вони нагадують кулю, можуть бути округло-овальними. М''якуш має темно-бордовий колір, кісточка від м''якоті відокремлюється з легкістю. Плоди придатні для транспортування, зберігання, тому сорт застосовується як промисловий.','5,49');
@@ -174,13 +173,11 @@ Insert into LAB3_LD_APRICOTS (LAB3_LD_APRICOT_ID,LAB3_LD_APRICOT_NAME,LAB3_LD_IN
 Insert into LAB3_LD_APRICOTS (LAB3_LD_APRICOT_ID,LAB3_LD_APRICOT_NAME,LAB3_LD_INFO,LAB3_LD_PRICE) values ('15','Том Кот','Абрикос Том Кот - американський сорт абрикоса середнього терміну дозрівання. Отриманий від схрещування сортів Rival та Goldrich. Плоди великі середньою вагою 80 грам, окремі екземпляри досягають 110 грам, видовжено-кулястої форми, вершина плода злегка звужена. Рум''янець червоного кольору на 10-40% поверхні. Дуже хороший збалансований смак, із специфічним присмаком. М''якуш помаранчевий, дуже щільний. Плоди привабливі та товарні.','5,49');
 Insert into LAB3_LD_APRICOTS (LAB3_LD_APRICOT_ID,LAB3_LD_APRICOT_NAME,LAB3_LD_INFO,LAB3_LD_PRICE) values ('16','Фарбелі','Абрикос Фарбелі - новий пізній сорт абрикоса. Селекція Франції. Плоди дуже великі, округло-подовженої форми, масою 90 - 100 грам, окремі більші, досягають 140 грам, насичено-оранжевого кольору, з червоним рум''янцем на 30-60% поверхні плода. При повному дозріванні плоди майже повністю стають червоні. Смакові якості сорту високі.','6');
 Insert into LAB3_LD_APRICOTS (LAB3_LD_APRICOT_ID,LAB3_LD_APRICOT_NAME,LAB3_LD_INFO,LAB3_LD_PRICE) values ('17','Фардао','Абрикос Фардао – новий дуже пізній сорт абрикосу з дозріванням плодів у вересні. Селекція Франції. Плоди масою близько 50 грам, окремі крупніше, видовжено-конічної форми, злегка загострені до вершини, вираженим швом, привабливого яскраво-жовтогарячого забарвлення з не сильно вираженим точковим червоним рум''янцем. М''якуш щільної консистенції, помаранчевий, дуже соковитий, хрящуватий і повністю м''який при дозріванні. Смакові якості, високі, смак практично повністю солодкий, із невеликим вмістом кислоти, дуже ароматні.','5,9');
-SET DEFINE OFF;
 Insert into LAB3_LD_GALLERY (LAB3_LD_GROUP_ID,LAB3_LD_GROUP_NAME) values ('1','Догляд за садом');
 Insert into LAB3_LD_GALLERY (LAB3_LD_GROUP_ID,LAB3_LD_GROUP_NAME) values ('2','Дерева');
 Insert into LAB3_LD_GALLERY (LAB3_LD_GROUP_ID,LAB3_LD_GROUP_NAME) values ('3','Плоди');
 Insert into LAB3_LD_GALLERY (LAB3_LD_GROUP_ID,LAB3_LD_GROUP_NAME) values ('5','Садівля');
 Insert into LAB3_LD_GALLERY (LAB3_LD_GROUP_ID,LAB3_LD_GROUP_NAME) values ('4','Цвітіння');
-SET DEFINE OFF;
 Insert into LAB3_LD_GALLERY_IMAGES (LAB3_LD_IMAGE_ID,LAB3_LD_GROUP_ID,LAB3_LD_IMAGE_FILE) values ('1','1','1(1).jpg');
 Insert into LAB3_LD_GALLERY_IMAGES (LAB3_LD_IMAGE_ID,LAB3_LD_GROUP_ID,LAB3_LD_IMAGE_FILE) values ('2','1','1(2).jpg');
 Insert into LAB3_LD_GALLERY_IMAGES (LAB3_LD_IMAGE_ID,LAB3_LD_GROUP_ID,LAB3_LD_IMAGE_FILE) values ('3','1','1(3).jpg');
@@ -240,9 +237,6 @@ Insert into LAB3_LD_GALLERY_IMAGES (LAB3_LD_IMAGE_ID,LAB3_LD_GROUP_ID,LAB3_LD_IM
 Insert into LAB3_LD_GALLERY_IMAGES (LAB3_LD_IMAGE_ID,LAB3_LD_GROUP_ID,LAB3_LD_IMAGE_FILE) values ('57','5','5(4).jpg');
 Insert into LAB3_LD_GALLERY_IMAGES (LAB3_LD_IMAGE_ID,LAB3_LD_GROUP_ID,LAB3_LD_IMAGE_FILE) values ('58','5','5(5).jpg');
 Insert into LAB3_LD_GALLERY_IMAGES (LAB3_LD_IMAGE_ID,LAB3_LD_GROUP_ID,LAB3_LD_IMAGE_FILE) values ('59','5','5(6).jpg');
-SET DEFINE OFF;
-SET DEFINE OFF;
-SET DEFINE OFF;
 --------------------------------------------------------
 --  DDL for Index LAB3_LD_APRICOT_IMAGES_PK
 --------------------------------------------------------
