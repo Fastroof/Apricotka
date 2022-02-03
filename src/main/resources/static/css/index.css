@@ -8,8 +8,9 @@
     --bg-image-1: url("../slider/slider-1.jpg");
     --bg-image-2: url("../slider/slider-2.jpg");
     --bg-image-3: url("../slider/slider-3.jpg");
-
     animation: changebg 16s infinite;
+    height: -webkit-fill-available;
+    position: absolute;
 }
 
 @keyframes changebg {
@@ -26,8 +27,7 @@
 
 .content {
     text-align: center;
-    padding-top: 165px;
-    padding-bottom: 170px;
+    margin-top: 300px;
 }
 
 .content h1 {
@@ -136,6 +136,7 @@
 }
 
 .cart-button-style {
+    z-index: 3;
     border-style: none;
     position: fixed;
     top: 0.4rem;

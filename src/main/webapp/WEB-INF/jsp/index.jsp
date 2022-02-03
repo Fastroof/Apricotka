@@ -14,8 +14,8 @@
 </head>
 <body>
   <%@include file="/WEB-INF/jspf/header.jspf"%>
-  <div class="hello">
-    <div class="container">
+  <div class="hello" id="hello">
+    <div class="container" id="content">
       <div class="content">
         <h1 class="strokeme">Не знайдеш смачніші!</h1>
         <p class="strokeme">Стиглі, соковиті, вирощенні з турботою абрикоси<br> двадцяти двох різних сортів можна замовити вже зараз</p>
@@ -75,6 +75,10 @@
   <script type="text/javascript" src="<spring:url value="js/shopping.js"/>"></script>
   <script type="text/javascript">
       jQuery(function() {
+        $("#shop").css("padding-top", $("#hello").height())
+        $(window).on('resize', function () {
+            $("#shop").css("padding-top", $("#hello").height())
+        });
         $("#create-order-button").on('click', function() {
             $.ajax({
                 type: "POST",

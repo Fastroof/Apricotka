@@ -19,10 +19,10 @@
           по виробництві протягом літа і ви можете замовити її зараз. Ми обов'язково передзвонимо й уточнимо дату
           проведення.
         </p>
-<%--        <div class="title tour-price">Ціна: 50$</div>--%>
-<%--        <button class="tour-button">--%>
-<%--          <span>Замовити тур!</span>--%>
-<%--        </button>--%>
+        <div class="title tour-price">Ціна: 50$</div>
+        <button class="tour-button">
+          <span>Замовити тур!</span>
+        </button>
       </div>
     </div>
   </div>
