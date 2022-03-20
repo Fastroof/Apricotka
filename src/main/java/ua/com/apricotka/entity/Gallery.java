@@ -8,14 +8,14 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "lab3_ld_gallery")
+@Table(name = "gallery")
 public class Gallery {
 
     @Id
-    @Column(name = "lab3_ld_group_id", nullable = false, unique = true)
+    @Column(name = "group_id", nullable = false, unique = true)
     @GeneratedValue(generator = "increment")
     private Long id;
 
-    @Column(name = "lab3_ld_group_name")
+    @Column(name = "group_name")
     private String groupName;
 }

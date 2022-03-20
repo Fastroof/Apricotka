@@ -8,17 +8,17 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "lab3_ld_apricot_images")
+@Table(name = "apricot_images")
 public class ApricotImage {
 
     @Id
-    @Column(name = "lab3_ld_apricot_image_id", nullable = false, unique = true)
+    @Column(name = "apricot_image_id", nullable = false, unique = true)
     @GeneratedValue(generator = "increment")
     private Long id;
 
-    @Column(name = "lab3_ld_apricot_id", nullable = false)
+    @Column(name = "apricot_id", nullable = false)
     private Long apricotId;
 
-    @Column(name = "lab3_ld_image_file", length = 120)
+    @Column(name = "image_file", length = 120)
     private String file;
 }
