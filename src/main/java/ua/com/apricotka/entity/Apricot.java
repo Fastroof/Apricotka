@@ -9,20 +9,20 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "lab3_ld_apricots")
+@Table(name = "apricots")
 public class Apricot {
 
     @Id
-    @Column(name = "lab3_ld_apricot_id", nullable = false, unique = true)
+    @Column(name = "apricot_id", nullable = false, unique = true)
     @GeneratedValue(generator = "increment")
     private Long id;
 
-    @Column(name = "lab3_ld_apricot_name", nullable = false, length = 100)
+    @Column(name = "apricot_name", nullable = false, length = 100)
     private String name;
 
-    @Column(name = "lab3_ld_info", nullable = false, length = 2000)
+    @Column(name = "info", nullable = false, length = 2000)
     private String info;
 
-    @Column(name = "lab3_ld_price", nullable = false)
+    @Column(name = "price", nullable = false)
     private Double price;
 }

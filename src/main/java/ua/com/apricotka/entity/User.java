@@ -8,23 +8,23 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "lab3_ld_users")
+@Table(name = "users")
 public class User {
 
     @Id
-    @Column(name = "lab3_ld_user_id", nullable = false, unique = true, updatable = false)
+    @Column(name = "user_id", nullable = false, unique = true, updatable = false)
     @GeneratedValue(generator = "increment")
     private Long id;
 
-    @Column(name = "lab3_ld_email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "lab3_ld_password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "lab3_ld_first_name", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "lab3_ld_last_name", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 }
