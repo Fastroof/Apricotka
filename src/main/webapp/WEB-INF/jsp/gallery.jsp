@@ -23,7 +23,7 @@
     <c:forEach var="image" items="${galleryImages}">
       <div class="gallery-item ${image.groupId}">
         <div class="gallery-item-inner">
-          <img src="pictures/gallery/${image.file}" id="${image.id}" alt="${image.groupId}">
+          <img src="${image.file}" id="${image.id}" alt="${image.groupId}">
         </div>
       </div>
     </c:forEach>
