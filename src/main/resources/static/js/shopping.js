@@ -62,11 +62,11 @@ function refreshCart(len) {
         "              </div>\n" +
         "              <div class=\"input-price\">\n" +
         "                <div class=\"input\">\n" +
-        "                  <button class=\"minus\" id=\"minus-" + orderItems[len][0] + "\">-</button>\n" +
+        "                  <button class=\"minus\" id=\"minus-" + orderItems[len][0] + "\"><i class=\"fa-solid fa-minus fs-6\"></i></button>\n" +
         "                  <label>\n" +
         "                    <input class=\"quantity\" minlength=\"1\" id=\"quantity-" + orderItems[len][0] + "\">\n" +
         "                  </label>\n" +
-        "                  <button class=\"plus\" id=\"plus-"+ orderItems[len][0] + "\">+</button>\n" +
+        "                  <button class=\"plus\" id=\"plus-"+ orderItems[len][0] + "\"><i class=\"fa-solid fa-plus fs-6\"></i></button>\n" +
         "                </div>\n" +
         "                <div class=\"price-div\">\n" +
         "                   <span>$</span>\n" +

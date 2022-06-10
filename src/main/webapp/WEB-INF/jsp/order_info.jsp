@@ -13,7 +13,7 @@
       <label for="orderId">Уведіть номер замовлення:</label>
       <div style="display: flex;">
         <input required minlength="1" pattern="^\d*$" title="Тільки цифри" type="search" id="orderId" name="orderId">
-        <button style="height: 38px; margin-left: 0.5em;">Знайти</button>
+        <button class="btn btn-primary ms-2">Знайти</button>
       </div>
     </form>
     <c:if test="${info != null}">

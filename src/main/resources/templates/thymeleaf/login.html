@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="ua">
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
-    <link type="text/css" rel="stylesheet" href="css/normalize.css">
-    <link type="text/css" rel="stylesheet" href="css/skeleton.css">
-    <link type="text/css" rel="stylesheet" href="css/authentication.css">
-    <link rel="icon" type="image/svg" href="logo/logo-icon-v2.2.svg">
-    <title>Увійти в акаунт</title>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
+  <link rel="icon" type="image/png" href="logo/logo-icon-v2.2.svg">
+  <title>FTPR:Login</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="css/auth.css" rel="stylesheet">
 </head>
-<body>
-<div class="authentication-container">
-    <h1>Увійти в акаунт</h1>
-    <p>Для оформлення замовлення або перегляду стану замовлення потрібно увійти в акаунт або зареєструватися</p>
-    <div th:if="${param.error}">
-        Неправильний email і/або пароль
-    </div>
-    <div th:if="${param.logout}">
-        Ви вийшли з акаунта
-    </div>
+<body class="text-center">
+  <main class="form-signin w-100 m-auto">
     <form th:action="@{/login}" method="post">
-        <div class="authentication-inputs">
-            <div><label> Email : <input type="text" name="email"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-        </div>
-        <div class="authentication-button"><input type="submit" value="Увійти"/></div>
+      <img class="mb-2" src="logo/logo-icon-v2.2.svg" alt="" width="64" height="64">
+      <h1 class="h3 mb-3 fw-normal">Увійти в акаунт</h1>
+      <div class="alert alert-danger" role="alert" th:if="${param.error}">
+        Неправильний email і/або пароль
+      </div>
+
+      <div class="form-floating">
+        <input type="email" maxlength="255" name="email" class="form-control" id="floatingInput" required>
+        <label for="floatingInput">Email</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" minlength="8" maxlength="255" name="password" class="form-control" id="floatingPassword" required>
+        <label for="floatingPassword">Пароль</label>
+      </div>
+      <button class="w-100 mb-2 btn btn-lg btn-primary" type="submit">Увійти</button>
+      <a href="/registration">Зареєструватися</a>
+      <br>
+      <a href="/">До головної сторінки</a>
     </form>
-    <a href="/registration">Реєстрація нового користувача</a>
-    <br>
-    <a href="/">До магазину</a>
-</div>
+  </main>
 </body>
 </html>

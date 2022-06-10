@@ -5,12 +5,15 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    --bg-image-1: url("../slider/slider-1.jpg");
-    --bg-image-2: url("../slider/slider-2.jpg");
-    --bg-image-3: url("../slider/slider-3.jpg");
+    --bg-image-1: url("https://live.staticflickr.com/65535/52120135930_f229f38356_k.jpg");
+    --bg-image-2: url("https://live.staticflickr.com/65535/52118605187_c4313beeef_k.jpg");
+    --bg-image-3: url("https://live.staticflickr.com/65535/52119635901_aab17ac707_k.jpg");
     animation: changebg 16s infinite;
-    height: -webkit-fill-available;
+    min-height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    min-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    min-height: fill-available;
     position: absolute;
+    height: 100%;
 }
 
 @keyframes changebg {
@@ -138,12 +141,8 @@
 .cart-button-style {
     z-index: 3;
     border-style: none;
-    position: fixed;
-    top: 0.4rem;
-    right: 0;
-    width: 6em;
+    width: 5em;
     padding: 1em 1em;
-    margin: 0 3em 0 0;
     background: #5B8E25;
     color: white;
     transition: background .5s;

@@ -1,8 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!Doctype html>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
   <%@include file="/WEB-INF/jspf/head.jspf"%>
@@ -13,7 +12,23 @@
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css">
 </head>
 <body>
-  <%@include file="/WEB-INF/jspf/header.jspf"%>
+  <header>
+    <div class="container">
+      <nav class="navigation-bar">
+        <img src="<spring:url value="logo/logo-v3.svg"/>" alt="logo" class="logo">
+        <ul class="navigation-bar-links">
+          <li><a href="/" lang="ua">Магазин</a></li>
+          <li><a href="tour" lang="ua">Екскурсія</a></li>
+          <li><a href="gallery" lang="ua">Галерея</a></li>
+          <li><a href="tel:097 408-12-21" lang="ua"><i class="fa-solid fa-phone"></i> 097 408-12-21</a></li>
+          <li><a href="mailto:info@apricotka.com.ua" lang="ua"><i class="fa-solid fa-envelope"></i> info@apricotka.com.ua</a></li>
+          <li><a href="order_info"><img class="find-img" src="<spring:url value="icons/find.svg"/>"></a></li>
+          <li><button id='cart-button' class="trigger cart-button-style"><img class="shop-img" src="<spring:url value="icons/shopping.svg"/>" alt="Корзина"></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <div class="hello" id="hello">
     <div class="container" id="content">
       <div class="content">
@@ -23,15 +38,13 @@
     </div>
   </div>
 
-  <button id='cart-button' class="trigger cart-button-style"><img class="shop-img" src="<spring:url value="icons/shopping.svg"/>" alt="Корзина"></button>
-
   <div id="shop" class="shop container">
     <c:forEach var="apricot" items="${apricots}">
       <div class="product" id="product${apricot.id}">
         <div class="product-images">
           <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
             <c:forEach var="img" items="${apricotImages}">
-              <c:if test="${img.apricotId==apricot.id}"><img src="<spring:url value="pictures/apricots/${img.file}"/>" alt="${img.file}"></c:if>
+              <c:if test="${img.apricotId==apricot.id}"><img src="<spring:url value="${img.file}"/>" alt="${img.file}"></c:if>
             </c:forEach>
           </div>
         </div>
@@ -53,9 +66,9 @@
 
   <div id="modal" class="modal">
       <div class="modal-content">
-        <div class="modal-header" id="modal-header">
-          <span class="close">&times;</span>
-          <h2>Кошик</h2>
+        <div class="modal-header d-flex align-items-center fs-4" id="modal-header">
+          <span class="close"><i class="fa-solid fa-xmark"></i></span>
+          <i class="fas fa-shopping-cart"></i>
         </div>
         <div class="modal-body" id="modal-body">
           <p class="cart-is-empty" style="margin-bottom: 0;">Тут поки що порожньо, але це можна виправити</p>
@@ -70,7 +83,7 @@
   </div>
   <div style="display: none" id="dollarRate"><c:out value="${dollarRate}"/></div>
 
-  <script src="<spring:url value="js/jquery-3.6.0.min.js"/>"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
   <script type="text/javascript" src="<spring:url value="js/shopping.js"/>"></script>
   <script type="text/javascript">

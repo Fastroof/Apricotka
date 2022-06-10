@@ -7,51 +7,35 @@
   <link type="text/css" rel="stylesheet" href="<spring:url value="css/navigation.css"/>">
   <link type="text/css" rel="stylesheet" href="<spring:url value="css/gallery.css"/>">
   <title>Галерея</title>
+  <script src="https://unpkg.com/flickr-justified-gallery@1/dist/fjGallery.min.js"></script>
+  <link href="https://unpkg.com/flickr-justified-gallery@1/dist/fjGallery.css" rel="stylesheet">
 </head>
 <body>
 <%@include file="/WEB-INF/jspf/header.jspf"%>
 <div class="gallery">
   <div class="container">
+    <h5 class="text-center">
+      Тут перелічені такі розділи як
+    </h5>
     <div class="gallery-filter">
-      <span class="filter-item active" data-filter="0">Усі</span>
       <c:forEach var="group" items="${galleryGroups}">
         <span class="filter-item" data-filter="${group.id}">${group.groupName}</span>
       </c:forEach>
     </div>
   </div>
-  <div class="row container">
+  <div class="fj-gallery container">
     <c:forEach var="image" items="${galleryImages}">
-      <div class="gallery-item ${image.groupId}">
-        <div class="gallery-item-inner">
-          <img src="pictures/gallery/${image.file}" id="${image.id}" alt="${image.groupId}">
-        </div>
+      <div class="fj-gallery-item ${image.groupId}">
+        <img src="${image.file}" id="${image.id}" alt="${image.groupId}">
       </div>
     </c:forEach>
   </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-    const filterContainer = document.querySelector(".gallery-filter");
-    const galleryItems = document.querySelectorAll(".gallery-item");
-    filterContainer.addEventListener("click", (event) =>{
-        if(event.target.classList.contains("filter-item")){
-            // deactivate existing active 'filter-item'
-            filterContainer.querySelector(".active").classList.remove("active");
-            // activate new 'filter-item'
-            event.target.classList.add("active");
-            const filterValue = event.target.getAttribute("data-filter");
-            galleryItems.forEach((item) =>{
-                if(item.classList.contains(filterValue) || filterValue === '0'){
-                    item.classList.remove("hide");
-                    item.classList.add("show");
-                }
-                else{
-                    item.classList.remove("show");
-                    item.classList.add("hide");
-                }
-            });
-        }
-    });
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  $('.fj-gallery').fjGallery({
+    itemSelector: '.fj-gallery-item'
+  });
 </script>
 </body>
 </html>

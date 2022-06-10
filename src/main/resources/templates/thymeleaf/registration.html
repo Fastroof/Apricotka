@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="ua">
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -8,28 +8,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
-  <link type="text/css" rel="stylesheet" href="css/normalize.css">
-  <link type="text/css" rel="stylesheet" href="css/skeleton.css">
-  <link type="text/css" rel="stylesheet" href="css/authentication.css">
-  <link rel="icon" type="image/svg" href="logo/logo-icon-v2.2.svg">
-  <title>Реєстрація нового користувача</title>
+  <link rel="icon" type="image/png" href="logo/logo-icon-v2.2.svg">
+  <title>FTPR:Registration</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="css/auth.css" rel="stylesheet">
 </head>
-<body>
-  <div class="authentication-container">
-    <h1>Реєстрація нового користувача</h1>
-    <p>Після успішної реєстрації потрібно зайти до акаунту за новоствореними email та паролем</p>
+<body class="text-center">
+  <main class="form-signin w-100 m-auto">
     <form th:action="@{/registration}" th:object="${user}" method="post">
-      <div class="authentication-inputs">
-        <div><label> Email : <input type="email" th:field="*{email}" required maxlength="255"/> </label></div>
-        <div><label> Пароль : <input type="password" th:field="*{password}" required minlength="8"/> </label></div>
-        <div><label> Ім'я : <input type="text" th:field="*{firstName}" required maxlength="255"/> </label></div>
-        <div><label> Прізвище : <input type="text" th:field="*{lastName}" required maxlength="255"/> </label></div>
+      <img class="mb-2" src="logo/logo-icon-v2.2.svg" alt="" width="64" height="64">
+      <h1 class="h3 mb-1 fw-normal">Реєстрація</h1>
+      <p class="text-secondary mb-3 fw-normal"><small>Після успішної реєстрації потрібно зайти до акаунту за новоствореними email та паролем</small></p>
+
+      <div class="form-floating">
+        <input type="email" th:field="*{email}" maxlength="255" name="email" class="form-control" id="floatingEmail" required>
+        <label for="floatingEmail">Email</label>
       </div>
-      <div class="authentication-button"><input type="submit" value="Зареєструватися"/></div>
+      <div class="form-floating">
+        <input type="text" th:field="*{firstName}" maxlength="255" name="firstName" class="form-control" id="floatingFirstName" required>
+        <label for="floatingFirstName">Ім'я</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" th:field="*{lastName}" maxlength="255" name="lastName" class="form-control" id="floatingLastName" required>
+        <label for="floatingLastName">Прізвище</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" th:field="*{password}" minlength="8" maxlength="255" name="password" class="form-control" id="floatingPassword" required>
+        <label for="floatingPassword">Пароль</label>
+      </div>
+
+      <button class="w-100 mb-2 btn btn-lg btn-primary" type="submit">Зареєструватися</button>
+      <a href="/login">Я вже зареєстрований</a>
+      <br>
+      <a href="/">До головної сторінки</a>
     </form>
-    <a href="/login">Увійти в акаунт</a>
-    <br>
-    <a href="/">До магазину</a>
-  </div>
+  </main>
 </body>
 </html>
