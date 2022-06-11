@@ -44,7 +44,7 @@
         <div class="product-images">
           <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
             <c:forEach var="img" items="${apricotImages}">
-              <c:if test="${img.apricotId==apricot.id}"><img src="<spring:url value="${img.file}"/>" alt="${img.file}"></c:if>
+              <c:if test="${img.apricotId==apricot.id}"><img src="${img.file}" alt="${img.file}"></c:if>
             </c:forEach>
           </div>
         </div>
